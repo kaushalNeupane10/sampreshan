@@ -47,17 +47,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
       <div
         aria-hidden={!open}
         onClick={onClose}
-        className={`
-          fixed inset-0 z-40
-          bg-neutral-900/55
-          backdrop-blur-sm
-          transition-opacity duration-200
-          ${
-            open
-              ? "pointer-events-auto opacity-100"
-              : "pointer-events-none opacity-0"
-          }
-        `}
+        className={`fixed inset-0 z-40 bg-neutral-900/55 backdrop-blur-sm transition-opacity duration-200 ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       />
 
       {/* Drawer */}
@@ -65,38 +55,10 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile Navigation"
-        className={`
-          fixed
-          left-0
-          top-0
-          z-50
-          flex
-          h-dvh
-          w-[82%]
-          max-w-sm
-          flex-col
-          border-r
-          border-border
-          bg-bg-surface
-          shadow-xl
-          transition-transform
-          duration-300
-          ease-out
-          ${open ? "translate-x-0" : "-translate-x-full"}
-        `}
+        className={`fixed left-0 top-0 z-50 flex h-dvh w-[82%] max-w-sm flex-col border-r border-border bg-bg-surface shadow-xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Header */}
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-            border-b
-            border-border
-            px-5
-            py-4
-          "
-        >
+        <div className="flex items-center justify-between border-b border-border px-5 py-4">
           <Link href="/" onClick={onClose} className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-border bg-bg-surface">
               <Image
@@ -123,19 +85,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             type="button"
             aria-label="Close menu"
             onClick={onClose}
-            className="
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              rounded-xl
-              text-text-body
-              transition-colors
-              duration-200
-              hover:bg-brand-subtle
-              hover:text-brand
-            "
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-text-body transition-colors duration-200 hover:bg-brand-subtle hover:text-brand"
           >
             <X size={20} />
           </button>
@@ -157,23 +107,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                     href={item.href}
                     onClick={onClose}
                     aria-current={active ? "page" : undefined}
-                    className={`
-                      flex
-                      items-center
-                      gap-3
-                      rounded-xl
-                      px-4
-                      py-3
-                      text-sm
-                      font-medium
-                      transition-all
-                      duration-200
-                      ${
-                        active
-                          ? "bg-brand-subtle text-brand"
-                          : "text-text-body hover:bg-bg-sunken hover:text-brand"
-                      }
-                    `}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${active ? "bg-brand-subtle text-brand" : "text-text-body hover:bg-bg-sunken hover:text-brand"}`}
                   >
                     {Icon && <Icon size={18} className="shrink-0" />}
 
@@ -186,14 +120,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
         </nav>
 
         {/* Footer */}
-        <div
-          className="
-            border-t
-            border-border
-            px-5
-            py-4
-          "
-        >
+        <div className="border-t border-border px-5 py-4">
           <p className="text-xs text-text-muted">
             &copy; 2026 Sampreshan Media. All rights reserved.
           </p>
