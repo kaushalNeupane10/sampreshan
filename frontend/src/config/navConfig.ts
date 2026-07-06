@@ -18,8 +18,8 @@ export const MAIN_NAVIGATION: NavItem[] = [
     icon: FolderKanban,
   },
   {
-    label: "Video Capturing",
-    href: "/VideoCapturing",
+    label: "Studio",
+    href: "/Studio",
     icon: Clapperboard,
   },
   {

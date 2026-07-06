@@ -1,26 +1,20 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
+import ParticleNetwork from "./PlexusBackground";
 
 export default function HeroSection() {
   return (
     <section aria-label="Hero" className="relative isolate overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
-        <Image
-          src="/landing/hero.jpeg"
-          alt="Creative agency workspace"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+        <ParticleNetwork />
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 -z-10 bg-(--overlay)" />
+      {/* <div className="absolute inset-0 -z-10 bg-(--overlay)" /> */}
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[rgba(0,35,149,0.92)] via-[rgba(0,35,149,0.72)] to-[rgba(0,0,0,0.35)]" />
+      {/* <div className="absolute inset-0 -z-10 bg-linear-to-r from-[rgba(0,35,149,0.92)] via-[rgba(0,35,149,0.72)] to-[rgba(0,0,0,0.35)]" /> */}
 
       <div className="container-custom">
         <div className="flex min-h-[90svh] items-center py-20 md:py-28">
