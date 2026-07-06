@@ -1,4 +1,4 @@
-import { NavItem } from "@/types/Nav";
+import { NavItem } from "@/types/nav";
 import { Info, Clapperboard, Briefcase, FolderKanban, Tag } from "lucide-react";
 
 export const MAIN_NAVIGATION: NavItem[] = [
