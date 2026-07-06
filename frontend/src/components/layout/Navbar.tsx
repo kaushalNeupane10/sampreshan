@@ -33,7 +33,7 @@ export default function Navbar() {
             <Link href="/" className="group flex shrink-0 items-center gap-3">
               <div className="relative h-11 w-11 overflow-hidden rounded-xl border border-border bg-bg-surface shadow-sm transition-all duration-200 group-hover:border-brand group-hover:shadow-brand">
                 <Image
-                  src="/sampresan-png.gif"
+                  src="/Sampresan.png"
                   alt="Sampreshan"
                   fill
                   priority

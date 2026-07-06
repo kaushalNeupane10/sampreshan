@@ -1,5 +1,9 @@
-import React from "react";
+import HeroSection from "@/components/landing/HeroSection";
 
-export default function page() {
-  return <div>home page</div>;
+export default function Page() {
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 }
