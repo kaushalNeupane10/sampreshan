@@ -86,7 +86,7 @@ export default function AboutStory() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-neutral-200">
+      <section className="border-b border-border bg-bg-sunken">
         <div className="container-custom px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
           {/* Cards */}
           <div className="grid gap-8 md:grid-cols-2">
