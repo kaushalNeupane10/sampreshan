@@ -62,7 +62,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           <Link href="/" onClick={onClose} className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-border bg-bg-surface">
               <Image
-                src="/logo.png"
+                src="/logo/Sampresan.png"
                 alt="Sampreshan"
                 fill
                 sizes="40px"

@@ -1,16 +1,11 @@
 import { NavItem } from "@/types/nav";
-import { Info, Clapperboard, Briefcase, FolderKanban, Tag } from "lucide-react";
+import { Info, Clapperboard, Contact, FolderKanban, Tag } from "lucide-react";
 
 export const MAIN_NAVIGATION: NavItem[] = [
   {
     label: "About Us",
     href: "/about",
     icon: Info,
-  },
-  {
-    label: "Services",
-    href: "/services",
-    icon: Briefcase,
   },
   {
     label: "Portfolio",
@@ -26,5 +21,10 @@ export const MAIN_NAVIGATION: NavItem[] = [
     label: "Pricing",
     href: "/pricing",
     icon: Tag,
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    icon: Contact,
   },
 ];

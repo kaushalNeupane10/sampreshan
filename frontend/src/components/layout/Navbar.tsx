@@ -10,30 +10,17 @@ import MobileDrawer from "./MobileDrawer";
 
 export default function Navbar() {
   const pathname = usePathname();
-
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-bg-surface/80 backdrop-blur-xl supports-backdrop-filter:bg-bg-surface/70 shadow-sm">
         <div className="container-custom mx-auto flex h-16 items-center justify-between px-4 sm:h-18 sm:px-6 lg:h-20 lg:px-8">
-          {/* Left */}
-          <div className="flex items-center gap-3">
-            {/* Mobile Menu */}
-            <button
-              type="button"
-              aria-label="Open navigation menu"
-              onClick={() => setMobileOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-bg-surface text-text-body transition-all duration-200 hover:border-brand hover:bg-brand-subtle hover:text-brand focus:outline-none focus:ring-2 focus:ring-brand/20 md:hidden"
-            >
-              <Menu size={20} />
-            </button>
-
-            {/* Logo */}
+          <div className="flex items-center">
             <Link href="/" className="group flex shrink-0 items-center gap-3">
               <div className="relative h-11 w-11 overflow-hidden rounded-xl border border-border bg-bg-surface shadow-sm transition-all duration-200 group-hover:border-brand group-hover:shadow-brand">
                 <Image
-                  src="/Sampresan.png"
+                  src="/logo/Sampresan.png"
                   alt="Sampreshan"
                   fill
                   priority
@@ -46,7 +33,6 @@ export default function Navbar() {
                 <h1 className="text-lg font-black tracking-wide text-text-heading transition-colors duration-200 group-hover:text-brand">
                   Sampreshan
                 </h1>
-
                 <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-text-muted">
                   Media
                 </p>
@@ -54,14 +40,12 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <nav
             aria-label="Primary navigation"
             className="hidden items-center gap-10 md:flex"
           >
             {MAIN_NAVIGATION.map((item) => {
               const active = pathname === item.href;
-
               return (
                 <Link
                   key={item.href}
@@ -75,9 +59,21 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Future Right Section */}
-          <div className="hidden items-center gap-3 md:flex">
-            {/* Future CTA / Login Button */}
+          <div className="flex items-center gap-3">
+            {/* Future CTA / Login Button (Hidden on mobile, flex on desktop) */}
+            <div className="hidden items-center gap-3 md:flex">
+              {/* Your future button goes here */}
+            </div>
+
+            {/* Mobile Menu Button (Moved here, shows on mobile, hidden on desktop) */}
+            <button
+              type="button"
+              aria-label="Open navigation menu"
+              onClick={() => setMobileOpen(true)}
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-bg-surface text-text-body transition-all duration-200 hover:border-brand hover:bg-brand-subtle hover:text-brand focus:outline-none focus:ring-2 focus:ring-brand/20 md:hidden"
+            >
+              <Menu size={20} />
+            </button>
           </div>
         </div>
       </header>
