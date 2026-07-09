@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { PricingApiResponse } from "@/types/pricing";
+import { PricingPlan } from "@/types/pricing";
 
 export default function usePricing() {
-  const [pricing, setPricing] = useState<PricingApiResponse>([]);
+  const [pricing, setPricing] = useState<PricingPlan>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -11,7 +11,7 @@ export default function usePricing() {
     setLoading(true);
     setError(null);
     try {
-      const { data } = await axios.get<PricingApiResponse>("/api/pricing", {
+      const { data } = await axios.get<PricingPlan>("/api/pricing", {
         signal,
       });
       setPricing(data);
