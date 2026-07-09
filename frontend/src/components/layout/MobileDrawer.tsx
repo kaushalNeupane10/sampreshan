@@ -5,7 +5,6 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-
 import { MAIN_NAVIGATION } from "@/config/navConfig";
 import { useLockBodyScroll } from "@/hook/common/useLockBodyScroll";
 
