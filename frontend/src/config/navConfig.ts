@@ -14,7 +14,7 @@ export const MAIN_NAVIGATION: NavItem[] = [
   },
   {
     label: "Studio",
-    href: "/Studio",
+    href: "/studio",
     icon: Clapperboard,
   },
   {
