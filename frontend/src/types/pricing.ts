@@ -8,3 +8,10 @@ export interface PricingPlan {
   buttonText: string;
   popular?: boolean;
 }
+
+// faq section
+export interface PricingFaqItem {
+  id: number;
+  question: string;
+  answer: string;
+}
