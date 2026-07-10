@@ -14,18 +14,7 @@ const services = [
 
 export default function ContactForm() {
   return (
-    <section
-      className="
-        rounded-3xl
-        border
-        border-border
-        bg-bg-surface
-        p-6
-        shadow-md
-
-        md:p-8
-      "
-    >
+    <section className="rounded-3xl border border-border bg-bg-surface p-6 shadow-md md:p-8">
       <div>
         <h2 className="text-3xl font-bold text-text-heading">
           Send us a message
@@ -55,21 +44,7 @@ export default function ContactForm() {
               Service
             </label>
 
-            <select
-              className="
-                h-12
-                w-full
-                rounded-xl
-                border
-                border-border
-                bg-bg-page
-                px-4
-                text-text-body
-                outline-none
-                transition-colors
-                focus:border-brand
-              "
-            >
+            <select className="h-12 w-full rounded-xl border border-border bg-bg-page px-4 text-text-body outline-none transition-colors focus:border-brand">
               <option value="">Select a service</option>
 
               {services.map((service) => (
@@ -89,20 +64,7 @@ export default function ContactForm() {
           <textarea
             rows={6}
             placeholder="Tell us about your project..."
-            className="
-              w-full
-              resize-none
-              rounded-xl
-              border
-              border-border
-              bg-bg-page
-              p-4
-              text-text-body
-              outline-none
-              transition-colors
-              placeholder:text-text-muted
-              focus:border-brand
-            "
+            className="w-full resize-none rounded-xl border border-border bg-bg-page p-4 text-text-body outline-none transition-colors placeholder:text-text-muted focus:border-brand"
           />
         </div>
 

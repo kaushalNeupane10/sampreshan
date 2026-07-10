@@ -66,20 +66,7 @@ export default function ContactInfo() {
         </div>
       </div>
 
-      <div
-        className="
-          mt-10
-          flex
-          aspect-16/10
-          items-center
-          justify-center
-          rounded-3xl
-          border
-          border-dashed
-          border-border
-          bg-bg-sunken
-        "
-      >
+      <div className="mt-10 flex aspect-16/10 items-center justify-center rounded-3xl border border-dashed border-border bg-bg-sunken">
         <span className="text-text-muted">
           Google Map will be integrated here
         </span>
