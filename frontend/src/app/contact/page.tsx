@@ -1,3 +1,4 @@
+import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
 
 export default function page() {
@@ -7,6 +8,7 @@ export default function page() {
         <div className="container-custom px-4">
           <div className="grid gap-10 lg:grid-cols-[420px_1fr] xl:gap-16">
             <ContactInfo />
+            <ContactForm />
           </div>
         </div>
       </section>
