@@ -15,7 +15,7 @@ export default function StudioHero() {
         preload="metadata"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/logo/studioHero.webm" type="video/mp4" />
+        <source src="/video/studioHero.mp4" type="video/mp4" />
       </video>
 
       {/* Dark Overlay */}
