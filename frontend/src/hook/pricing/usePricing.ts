@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { pricingService } from "@/services/PricingService";
+import { getPricing } from "@/services/pricing.service";
 import { PricingPlan } from "@/types/pricing";
 import { getApiError } from "@/lib/api/errors";
 
@@ -17,7 +17,7 @@ export default function usePricing() {
     setError(null);
 
     try {
-      const data = await pricingService.getPricing();
+      const data = await getPricing();
 
       setPricing(data);
     } catch (error) {
