@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { QueryProvider } from "@/providers/QueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,7 +85,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           <Navbar />
 
           <main id="main-content" className="flex-1">
-            {children}
+            <QueryProvider>{children}</QueryProvider>
           </main>
 
           <Footer />
