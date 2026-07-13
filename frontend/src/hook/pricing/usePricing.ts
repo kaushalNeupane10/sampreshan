@@ -1,34 +1,31 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+
+import { useCallback, useState } from "react";
+import { pricingService } from "@/services/PricingService";
 import { PricingPlan } from "@/types/pricing";
+import { getApiError } from "@/lib/api/errors";
 
 export default function usePricing() {
   const [pricing, setPricing] = useState<PricingPlan>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchPricing = useCallback(async (signal?: AbortSignal) => {
+  // fetch pricing
+  const fetchPricing = useCallback(async () => {
     setLoading(true);
-    setError(null);
-    try {
-      const { data } = await axios.get<PricingPlan>("/api/pricing", {
-        signal,
-      });
-      setPricing(data);
-    } catch (err) {
-      if (axios.isCancel(err)) return;
 
-      setError("Failed to fetch pricing.");
-      console.error(err);
+    setError(null);
+
+    try {
+      const data = await pricingService.getPricing();
+
+      setPricing(data);
+    } catch (error) {
+      setError(getApiError(error));
     } finally {
       setLoading(false);
     }
   }, []);
-
-  //   useEffect(() => {
-  //     fetchPricing();
-  //   }, [fetchPricing]);
 
   return {
     pricing,
