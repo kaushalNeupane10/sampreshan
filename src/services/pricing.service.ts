@@ -6,5 +6,5 @@ export async function getPricing(): Promise<PricingPlan> {
     API_ENDPOINTS.pricing,
   );
 
-  return response.data.data;
+  return response.data.results;
 }

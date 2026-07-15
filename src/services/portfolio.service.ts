@@ -5,5 +5,5 @@ export async function getPortfolio(): Promise<PortfolioData> {
   const response = await apiClient.get<ApiResponse<PortfolioData>>(
     API_ENDPOINTS.portfolio,
   );
-  return response.data.data;
+  return response.data.results;
 }
