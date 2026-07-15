@@ -3,7 +3,7 @@ export const API_ENDPOINTS = {
 
   team: "/team",
 
-  portfolio: "/portfolio",
+  portfolio: "/public/portfolios/",
 
   brands: "/brands",
 
