@@ -1,10 +1,50 @@
 "use client";
 import BrandLogoCard from "@/components/brand/BrandLogoCard";
-import { brands } from "@/data/brandData";
 import useLogo from "@/hook/logos/useLogos";
+import BrandLogoCardSkeleton from "../brand/BrandLogoCardSkeleton";
 
 export default function BrandShowcase() {
   const { data, isLoading, isError, error } = useLogo();
+
+  if (isLoading) {
+    return (
+      <section className="bg-sunken py-20 md:py-28">
+        <div className="container-custom px-4">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <BrandLogoCardSkeleton key={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (isError) {
+    return (
+      <section className="bg-sunken py-20 md:py-28">
+        <div className="container-custom px-4">
+          <div className="flex min-h-60 items-center justify-center rounded-3xl border border-border bg-bg-surface">
+            <p className="text-text-muted">
+              {error.message || "Unable to load Brand Logo."}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!data?.length) {
+    return (
+      <section className="bg-sunken py-20 md:py-28">
+        <div className="container-custom px-4">
+          <div className="flex min-h-60 items-center justify-center rounded-3xl border border-border bg-bg-surface">
+            <p className="text-text-muted">No Brand Logos available.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="py-20 lg:py-28">
       <div className="container-custom px-5 lg:px-8">
