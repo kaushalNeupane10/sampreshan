@@ -2,11 +2,11 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { getPricing } from "@/services/pricing.service";
-import { PricingPlan } from "@/types/pricing";
+import { PricingPlansData } from "@/types/pricing";
 import { QUERY_KEYS } from "@/lib/react-query/querykeys";
 
 export default function usePricing() {
-  return useQuery<PricingPlan>({
+  return useQuery<PricingPlansData>({
     queryKey: QUERY_KEYS.pricing,
     queryFn: getPricing,
   });

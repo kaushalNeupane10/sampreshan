@@ -1,10 +1,10 @@
-import { apiClient, API_ENDPOINTS, type ApiResponse } from "@/lib/api";
-import { PricingPlan } from "@/types/pricing";
+import { apiClient, API_ENDPOINTS, type ApiRes } from "@/lib/api";
+import { PricingPlansData } from "@/types/pricing";
 
-export async function getPricing(): Promise<PricingPlan> {
-  const response = await apiClient.get<ApiResponse<PricingPlan>>(
+export async function getPricing(): Promise<PricingPlansData> {
+  const response = await apiClient.get<ApiRes<PricingPlansData>>(
     API_ENDPOINTS.pricing,
   );
 
-  return response.data.results;
+  return response.data.data;
 }

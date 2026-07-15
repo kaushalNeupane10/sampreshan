@@ -1,5 +1,5 @@
 export const API_ENDPOINTS = {
-  pricing: "/pricing",
+  pricing: "/public/pricing-packages/",
 
   team: "/team",
 

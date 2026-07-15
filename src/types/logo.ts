@@ -7,10 +7,3 @@ export interface Logo {
 }
 
 export type LogosData = Logo[];
-
-export interface LogoApiResponse<T> {
-  success: boolean;
-  status_code: number;
-  message: string;
-  data: T;
-}
