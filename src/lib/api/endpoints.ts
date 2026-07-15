@@ -5,7 +5,7 @@ export const API_ENDPOINTS = {
 
   portfolio: "/public/portfolios/",
 
-  brands: "/brands",
+  brands: "/public/client-logos/",
 
   studio: "/studio",
 

@@ -1,7 +1,10 @@
+"use client";
 import BrandLogoCard from "@/components/brand/BrandLogoCard";
 import { brands } from "@/data/brandData";
+import useLogo from "@/hook/logos/useLogos";
 
 export default function BrandShowcase() {
+  const { data, isLoading, isError, error } = useLogo();
   return (
     <section className="py-20 lg:py-28">
       <div className="container-custom px-5 lg:px-8">
@@ -18,7 +21,7 @@ export default function BrandShowcase() {
         </div>
 
         <div className="mt-14 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-8">
-          {brands.map((brand) => (
+          {data?.map((brand) => (
             <BrandLogoCard key={brand.id} brand={brand} />
           ))}
         </div>
