@@ -37,7 +37,7 @@ export default function AboutStory() {
     <>
       <section
         aria-labelledby="about-story"
-        className="border-y border-border bg-bg-surface"
+        className="border-y border-border bg-bg-surface pt-20"
       >
         <div className="container-custom px-5 py-14 sm:px-6 md:py-16 lg:px-8 lg:py-20">
           {/* Top Content */}

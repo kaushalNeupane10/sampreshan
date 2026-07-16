@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <>
       {/* Pricing Cards */}
-      <section className="container-custom py-20">
+      <section className="container-custom py-40">
         {isLoading && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {Array.from({ length: 3 }).map((_, index) => (
