@@ -5,7 +5,7 @@ import { gettestimonials } from "@/services/testimonials.service";
 import { TestimonialsData } from "@/types/testimonials";
 import { QUERY_KEYS } from "@/lib/react-query/querykeys";
 
-export default function usePricing() {
+export default function useTestimonials() {
   return useQuery<TestimonialsData>({
     queryKey: QUERY_KEYS.testimonials,
     queryFn: gettestimonials,

@@ -4,7 +4,7 @@ export interface Testimonials {
   person_name: string;
   job_title: string;
   company: string;
-  avatar: string | null;
+  avatar: string;
   client_logo: string | null;
   rating: number;
   source_url: string | null;
