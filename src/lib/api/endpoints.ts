@@ -10,4 +10,6 @@ export const API_ENDPOINTS = {
   studio: "/public/studio-projects/",
 
   service: "/public/services/",
+
+  testimonials: "/public/testimonials/",
 } as const;
