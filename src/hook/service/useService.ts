@@ -7,7 +7,7 @@ import { QUERY_KEYS } from "@/lib/react-query/querykeys";
 
 export default function usePricing() {
   return useQuery<ServiceData>({
-    queryKey: QUERY_KEYS.pricing,
+    queryKey: QUERY_KEYS.service,
     queryFn: getService,
   });
 }
