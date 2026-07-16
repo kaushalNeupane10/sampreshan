@@ -4,4 +4,5 @@ export const QUERY_KEYS = {
   portfolio: ["portfolio"] as const,
   brands: ["brands"] as const,
   studio: ["studio"] as const,
+  service: ["service"] as const,
 } as const;

@@ -9,5 +9,5 @@ export const API_ENDPOINTS = {
 
   studio: "/public/studio-projects/",
 
-  pricingFaqs: "/pricingfaqs",
+  service: "/public/services/",
 } as const;
