@@ -62,16 +62,7 @@ export default function ServicesSection() {
             "
           >
             One team for{" "}
-            <span
-              className="
-                bg-linear-to-r
-                from-brand-500
-                via-purple-500
-                to-accent
-                bg-clip-text
-                text-transparent
-              "
-            >
+            <span className="bg-linear-to-r from-brand-500 via-purple-500 to-accent bg-clip-text text-transparent">
               every capability
             </span>
             <span className="text-accent">.</span>

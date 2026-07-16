@@ -16,16 +16,7 @@ export default function Page() {
         <div className="max-w-3xl">
           <h2 className="text-3xl font-black tracking-tight text-text-heading sm:text-4xl lg:text-5xl">
             Stories Crafted Through{" "}
-            <span
-              className="
-                bg-linear-to-r
-                from-brand-500
-                via-purple-500
-                to-accent
-                bg-clip-text
-                text-transparent
-              "
-            >
+            <span className="bg-linear-to-r from-brand-500 via-purple-500 to-accent bg-clip-text text-transparent">
               Motion
             </span>
           </h2>
