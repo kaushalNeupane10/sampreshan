@@ -7,7 +7,7 @@ export const API_ENDPOINTS = {
 
   brands: "/public/client-logos/",
 
-  studio: "/studio",
+  studio: "/public/studio-projects/",
 
   pricingFaqs: "/pricingfaqs",
 } as const;
