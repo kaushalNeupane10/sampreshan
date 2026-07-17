@@ -6,4 +6,5 @@ export const QUERY_KEYS = {
   studio: ["studio"] as const,
   service: ["service"] as const,
   testimonials: ["testimonials"] as const,
+  careers: ["careers"] as const,
 } as const;

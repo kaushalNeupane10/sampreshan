@@ -12,4 +12,6 @@ export const API_ENDPOINTS = {
   service: "/public/services/",
 
   testimonials: "/public/testimonials/",
+
+  careers: "/public/careers/",
 } as const;
