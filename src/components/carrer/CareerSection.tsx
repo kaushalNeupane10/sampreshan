@@ -9,6 +9,7 @@ export default function CareerSection() {
 
   return (
     <section
+      id="open-positions"
       aria-labelledby="career-heading"
       className="bg-bg-page py-20 md:py-28"
     >
