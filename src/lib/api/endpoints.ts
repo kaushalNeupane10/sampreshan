@@ -14,4 +14,6 @@ export const API_ENDPOINTS = {
   testimonials: "/public/testimonials/",
 
   careers: "/public/careers/",
+
+  careersApply: "/public/careers/slug/apply/",
 } as const;
