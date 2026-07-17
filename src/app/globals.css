@@ -314,10 +314,6 @@
   * {
     border-color: var(--color-border);
   }
-  html {
-    scrollbar-color: var(--brand-light) #060d24;
-    scrollbar-width: thin;
-  }
   body {
     background-color: var(--color-bg-page);
     color: var(--color-text-body);
@@ -336,40 +332,60 @@
     color: var(--color-text-link);
   }
 
-  /* Branded scrollbar for Chromium, Safari, and other WebKit browsers. */
-  html::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+  /* Firefox fallback; kept separate so it does not override WebKit gradients. */
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-color: var(--brand-default) #060d24;
+      scrollbar-width: thin;
+    }
   }
 
-  html::-webkit-scrollbar-track {
-    background: linear-gradient(180deg, #040a1d 0%, #08153a 100%);
+  /* Sampreshan scrollbar for Chromium, Safari, and nested scroll areas. */
+  *::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
   }
 
-  html::-webkit-scrollbar-thumb {
-    min-height: 52px;
-    border: 3px solid #060d24;
+  *::-webkit-scrollbar-track {
+    border-radius: var(--radius-full);
+    background: linear-gradient(180deg, #030819 0%, #071436 100%);
+    box-shadow: inset 0 0 0 1px rgba(96, 136, 255, 0.06);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    min-height: 48px;
+    border: 2px solid #060d24;
     border-radius: var(--radius-full);
     background: linear-gradient(
       180deg,
-      var(--brand-light) 0%,
-      var(--brand-default) 58%,
-      var(--accent-default) 145%
+      #6088ff 0%,
+      var(--brand-default) 62%,
+      var(--accent-default) 100%
     );
     background-clip: padding-box;
+    box-shadow: 0 0 10px rgba(0, 35, 149, 0.3);
   }
 
-  html::-webkit-scrollbar-thumb:hover {
+  *::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(
       180deg,
-      #6088ff 0%,
-      var(--brand-light) 48%,
-      var(--accent-default) 125%
+      #86a6ff 0%,
+      var(--brand-light) 46%,
+      var(--accent-light) 100%
     );
     background-clip: padding-box;
   }
 
-  html::-webkit-scrollbar-corner {
+  *::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(
+      180deg,
+      var(--brand-light) 0%,
+      var(--accent-default) 100%
+    );
+    background-clip: padding-box;
+  }
+
+  *::-webkit-scrollbar-corner {
     background: #060d24;
   }
 }
