@@ -1,12 +1,26 @@
 "use client";
-
+import { useState } from "react";
 import CareerCard from "./CareerCard";
 import CareerCardSkeleton from "./CareerCardSkeleton";
 import useCareers from "@/hook/career/useCareers";
+import { Careers } from "@/types/career";
+import CareerApplyModal from "./CareerApplyModal";
 
 export default function CareerSection() {
   const { data, isLoading, isError, error } = useCareers();
 
+  const [selectedCareer, setSelectedCareer] = useState<Careers | null>(null);
+  const [open, setOpen] = useState(false);
+
+  const handleApply = (career: Careers) => {
+    setSelectedCareer(career);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedCareer(null);
+  };
   return (
     <section
       id="open-positions"
@@ -61,11 +75,21 @@ export default function CareerSection() {
         {!isLoading && !isError && data && data.length > 0 && (
           <div className="mt-14 space-y-6">
             {data.map((career) => (
-              <CareerCard key={career.id} career={career} />
+              <CareerCard
+                key={career.id}
+                career={career}
+                onApply={handleApply}
+              />
             ))}
           </div>
         )}
       </div>
+
+      <CareerApplyModal
+        open={open}
+        career={selectedCareer}
+        onClose={handleClose}
+      />
     </section>
   );
 }

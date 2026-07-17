@@ -3,7 +3,7 @@ export interface CareerApplyPayload {
   email: string;
   phone_number: string;
   cover_letter: string;
-  cv: string;
+  cv: File;
   website?: string;
 }
 

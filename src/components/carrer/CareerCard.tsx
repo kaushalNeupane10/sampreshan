@@ -1,12 +1,13 @@
-import Link from "next/link";
 import { Briefcase, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Careers } from "@/types/career";
+import Button from "@/components/ui/Button";
 
 interface CareerCardProps {
   career: Careers;
+  onApply: (career: Careers) => void;
 }
 
-export default function CareerCard({ career }: CareerCardProps) {
+export default function CareerCard({ career, onApply }: CareerCardProps) {
   // Format the application deadline for crisp presentation
   const formattedDeadline = new Date(
     career.application_deadline,
@@ -18,13 +19,6 @@ export default function CareerCard({ career }: CareerCardProps) {
 
   return (
     <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border bg-bg-surface p-6 transition-all duration-300 ease-out will-change-transform hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-xl hover:shadow-brand/5 md:p-8">
-      {/* Semantic Full-Card Action Overlay Link */}
-      <Link
-        href={`/careers/${career.slug}`}
-        className="absolute inset-0 z-20 cursor-pointer rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus"
-        aria-label={`Apply for the ${career.title} position`}
-      />
-
       <div>
         {/* 1. Upper Meta Information Row */}
         <div className="mb-5 flex flex-wrap gap-2 items-center justify-between">
@@ -68,13 +62,19 @@ export default function CareerCard({ career }: CareerCardProps) {
         </div>
 
         {/* Action Button Element Visual Wrapper */}
-        <div className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-bg-page px-4 py-2 text-xs font-semibold text-text-heading transition-all duration-300 group-hover:border-brand group-hover:bg-brand group-hover:text-white self-end sm:self-auto relative z-30 pointer-events-none">
-          <span>Apply Now</span>
-          <ArrowRight
-            size={14}
-            className="transition-transform duration-300 group-hover:translate-x-0.5"
-          />
-        </div>
+        <Button
+          type="button"
+          onClick={() => onApply(career)}
+          className="relative z-10 self-end sm:self-auto px-5 py-2.5 rounded-xl"
+        >
+          <span className="flex items-center gap-2">
+            Apply Now
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </span>
+        </Button>
       </div>
     </article>
   );

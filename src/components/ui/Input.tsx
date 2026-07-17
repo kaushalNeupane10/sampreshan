@@ -3,7 +3,7 @@
 import { forwardRef, InputHTMLAttributes, ReactNode, useId } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  label?: ReactNode;
   error?: string;
   helperText?: string;
   startIcon?: ReactNode;
