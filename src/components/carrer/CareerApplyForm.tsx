@@ -20,6 +20,7 @@ import useCareersApply from "@/hook/career/useCareersApply";
 import { CareerApplyPayload } from "@/types/apply";
 
 interface CareerApplyFormProps {
+  slug: string;
   onSuccess: () => void;
 }
 
@@ -41,7 +42,10 @@ const INITIAL_DATA: FormData = {
   cv: null,
 };
 
-export default function CareerApplyForm({ onSuccess }: CareerApplyFormProps) {
+export default function CareerApplyForm({
+  onSuccess,
+  slug,
+}: CareerApplyFormProps) {
   const [formData, setFormData] = useState<FormData>(INITIAL_DATA);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
     {},
@@ -50,7 +54,8 @@ export default function CareerApplyForm({ onSuccess }: CareerApplyFormProps) {
   const [showSuccess, setShowSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const { applyCareer, isPending, isError, error, reset } = useCareersApply();
+  const { applyCareer, isPending, isError, error, reset } =
+    useCareersApply(slug);
 
   const getErrorMessage = (): string => {
     if (!error) return "Something went wrong. Please try again.";

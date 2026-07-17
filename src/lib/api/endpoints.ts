@@ -15,5 +15,5 @@ export const API_ENDPOINTS = {
 
   careers: "/public/careers/",
 
-  careersApply: "/public/careers/slug/apply/",
+  careersApply: (slug: string) => `/public/careers/${slug}/apply/`,
 } as const;

@@ -120,7 +120,7 @@ export default function CareerApplyModal({
 
         {/* Form */}
         <div className="flex-1 overflow-y-auto px-6 pb-6 pt-4 md:px-8">
-          <CareerApplyForm onSuccess={onClose} />
+          <CareerApplyForm onSuccess={onClose} slug={career.slug} />
         </div>
       </div>
     </div>
