@@ -1,13 +1,19 @@
 export const API_ENDPOINTS = {
-  pricing: "/pricing",
+  pricing: "/public/pricing-packages/",
 
-  team: "/team",
+  team: "/public/team-members/",
 
   portfolio: "/public/portfolios/",
 
-  brands: "/brands",
+  brands: "/public/client-logos/",
 
-  studio: "/studio",
+  studio: "/public/studio-projects/",
 
-  pricingFaqs: "/pricingfaqs",
+  service: "/public/services/",
+
+  testimonials: "/public/testimonials/",
+
+  careers: "/public/careers/",
+
+  careersApply: (slug: string) => `/public/careers/${slug}/apply/`,
 } as const;

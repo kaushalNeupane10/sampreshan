@@ -2,27 +2,38 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MAIN_NAVIGATION } from "@/config/navConfig";
-import { FaFacebookF, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 const SERVICES = [
-  { label: "Graphic Design", href: "/services/graphic-design" },
-  { label: "Digital Marketing", href: "/services/digital-marketing" },
-  { label: "Video Production", href: "/services/video-production" },
-  { label: "Web Development", href: "/services/web-development" },
-  { label: "IT Solutions", href: "/services/it-solutions" },
+  { label: "Graphic Design", href: "#" },
+  { label: "Digital Marketing", href: "#" },
+  { label: "Video Production", href: "#" },
+  { label: "Web Development", href: "#" },
+  { label: "IT Solutions", href: "#" },
 ];
 
 const LEGAL = [
   { label: "Careers", href: "/careers" },
-  { label: "FAQ", href: "/faq" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
 ];
 
 const SOCIAL_LINKS = [
-  { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaXTwitter, href: "https://x.com", label: "X / Twitter" },
+  {
+    icon: FaFacebookF,
+    href: "https://www.facebook.com/Sampreshanmedia",
+    label: "Facebook",
+  },
+  {
+    icon: FaInstagram,
+    href: "https://www.instagram.com/sampreshanmedia/",
+    label: "Instagram",
+  },
+  {
+    icon: FaTiktok,
+    href: "https://www.tiktok.com/@sampreshan6?lang=en",
+    label: "Tiktok",
+  },
 ];
 
 export default function Footer() {

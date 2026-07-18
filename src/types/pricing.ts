@@ -1,13 +1,34 @@
+export interface PricingService {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface PricingFeature {
+  id: number;
+  title: string;
+  description: string;
+  order: number;
+}
+
 export interface PricingPlan {
   id: number;
-  packageName: string;
-  price: number | null;
-  billingType: "project" | "month" | "custom";
-  description: string;
-  features: string[];
-  buttonText: string;
-  popular?: boolean;
+  service: PricingService;
+  name: string;
+  short_description: string;
+  price: string;
+  billing_type: "project" | "month" | "custom" | "year" | "hour";
+  billing_type_display: string;
+  show_starting_at: boolean;
+  is_custom_price: boolean;
+  badge: string;
+  button_text: string;
+  is_featured: boolean;
+  is_studio_package: boolean;
+  features: PricingFeature[];
 }
+
+export type PricingPlansData = PricingPlan[];
 
 // faq section
 export interface PricingFaqItem {

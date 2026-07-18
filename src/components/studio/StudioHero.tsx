@@ -5,7 +5,7 @@ import { Play, ArrowRight, Film, Camera, Clapperboard } from "lucide-react";
 
 export default function StudioHero() {
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-hidden">
+    <section className="relative isolate flex min-h-screen items-center overflow-hidden pt-20">
       {/* Background Video */}
       <video
         autoPlay

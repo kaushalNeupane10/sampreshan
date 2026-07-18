@@ -12,3 +12,10 @@ export interface ApiResponse<T> {
     has_previous: boolean;
   };
 }
+
+export interface ApiRes<T> {
+  success: boolean;
+  status_code: number;
+  message: string;
+  data: T;
+}

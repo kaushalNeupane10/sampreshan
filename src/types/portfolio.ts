@@ -3,6 +3,7 @@ export interface Portfolio {
   title: string;
   category_name: string;
   client_name: string;
+  client_logo: string;
   year: string;
   description: string;
   url: string;

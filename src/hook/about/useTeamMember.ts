@@ -1,34 +1,13 @@
-import { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+"use client";
 
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  bio: string;
-  imageSrc: string;
-}
-export default function useTeamMember() {
-  const [data, setData] = useState<TeamMember | []>([]);
-  const [loading, setLoading] = useState(false);
+import { useQuery } from "@tanstack/react-query";
+import { getTeam } from "@/services/team.service";
+import { teamMemberData } from "@/types/team";
+import { QUERY_KEYS } from "@/lib/react-query/querykeys";
 
-  const fetchTeam = useCallback(async () => {
-    try {
-      setLoading(true);
-      const res = await axios.get("/api");
-      setData(res.data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    // fetchTeam()
-  }, [fetchTeam]);
-  return {
-    data,
-    loading,
-  };
+export default function useTeam() {
+  return useQuery<teamMemberData>({
+    queryKey: QUERY_KEYS.team,
+    queryFn: getTeam,
+  });
 }
