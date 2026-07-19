@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import { QueryProvider } from "@/providers/QueryProvider";
 
 const geistSans = Geist({
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
           </main>
 
           <Footer />
+          <ScrollToTop />
         </div>
       </body>
     </html>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ImageIcon } from "lucide-react";
 import { Portfolio } from "@/types/portfolio";
 
 interface PortfolioCardProps {
@@ -23,15 +24,23 @@ export default function PortfolioCard({ portfolio }: PortfolioCardProps) {
 
       {/* 2. Image Wrapper Section */}
       <div className="relative aspect-16/10 overflow-hidden bg-sunken">
-        <Image
-          src={portfolio.image}
-          alt={portfolio.title}
-          fill
-          unoptimized
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          priority={false}
-        />
+        {portfolio.image ? (
+          <Image
+            src={portfolio.image}
+            alt={portfolio.title}
+            fill
+            unoptimized
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-linear-to-br from-brand-950 to-neutral-900 text-white/70">
+            <ImageIcon className="h-9 w-9" aria-hidden="true" />
+            <span className="text-xs font-semibold tracking-widest uppercase">
+              Project preview
+            </span>
+          </div>
+        )}
 
         {/* Ambient Overlay for UI Legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
@@ -55,7 +64,7 @@ export default function PortfolioCard({ portfolio }: PortfolioCardProps) {
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3">
           <p className="text-xs font-bold tracking-widest text-brand uppercase">
-            {portfolio.client_name}
+            {portfolio.client_name || "Client project"}
           </p>
 
           <h3 className="text-pretty mt-1 text-xl font-bold leading-snug text-text-heading transition-colors duration-300 group-hover:text-brand">
@@ -81,7 +90,7 @@ export default function PortfolioCard({ portfolio }: PortfolioCardProps) {
           </span>
 
           {portfolio.url && (
-            <div className="relative z-20 inline-flex items-center gap-1 text-sm font-semibold text-brand transition-colors group-hover:text-brand-light">
+            <div className="pointer-events-none relative z-20 inline-flex items-center gap-1 text-sm font-semibold text-brand transition-colors group-hover:text-brand-light">
               <span>View Project</span>
               <svg
                 className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1"
