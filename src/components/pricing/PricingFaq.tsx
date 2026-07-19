@@ -39,7 +39,10 @@ export default function PricingFaq({ faqs }: PricingFaqProps) {
                 }
               >
                 <button
+                  type="button"
                   onClick={() => toggle(faq.id)}
+                  aria-expanded={open}
+                  aria-controls={`pricing-faq-answer-${faq.id}`}
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-300 hover:bg-brand-subtle"
                 >
                   <span className="text-base font-semibold text-text-heading md:text-lg">
@@ -54,6 +57,7 @@ export default function PricingFaq({ faqs }: PricingFaqProps) {
                 </button>
 
                 <div
+                  id={`pricing-faq-answer-${faq.id}`}
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
                 >
                   <div className="px-6 pb-6 text-base leading-7 text-text-body">

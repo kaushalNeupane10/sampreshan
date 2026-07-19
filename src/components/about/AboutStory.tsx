@@ -48,14 +48,14 @@ export default function AboutStory() {
                 Our Story
               </p>
 
-              <h2
+              <h1
                 id="about-story"
                 className="mt-5 max-w-lg text-4xl font-bold leading-tight text-text-heading md:text-5xl"
               >
                 Built to do it all —
                 <br />
                 well
-              </h2>
+              </h1>
             </div>
 
             {/* Right */}

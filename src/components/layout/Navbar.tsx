@@ -56,7 +56,7 @@ export default function Navbar() {
               </div>
 
               <div className="hidden min-[360px]:block">
-                <h1
+                <p
                   className={`text-lg font-black transition-colors duration-300 ${
                     transparent
                       ? "text-white"
@@ -64,7 +64,7 @@ export default function Navbar() {
                   }`}
                 >
                   Sampreshan
-                </h1>
+                </p>
                 <p
                   className={`text-[11px] uppercase tracking-[0.25em] ${
                     transparent ? "text-white/70" : "text-text-muted"

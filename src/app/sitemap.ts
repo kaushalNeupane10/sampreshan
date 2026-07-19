@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://sampreshan.com";
+import { siteConfig } from "@/config/siteConfig";
 
 const routes = [
   { path: "", priority: 1, changeFrequency: "weekly" as const },
@@ -14,7 +13,7 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map(({ path, priority, changeFrequency }) => ({
-    url: `${siteUrl}${path}`,
+    url: `${siteConfig.url}${path}`,
     changeFrequency,
     priority,
   }));

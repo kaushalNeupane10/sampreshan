@@ -1,70 +1,63 @@
-"use client";
-
-import StudioCard from "@/components/studio/StudioCard";
-import StudioCardSkeleton from "@/components/studio/StudioCardSkeleton";
+import JsonLd from "@/components/seo/JsonLd";
 import StudioHero from "@/components/studio/StudioHero";
-import useStudio from "@/hook/studio/useStudio";
+import StudioProjects from "@/components/studio/StudioProjects";
+import { siteConfig } from "@/config/siteConfig";
+import {
+  createBreadcrumbJsonLd,
+  createPageMetadata,
+  createWebPageJsonLd,
+} from "@/lib/seo";
+
+const title = "Video Production and Creative Studio";
+const description =
+  "Sampreshan Media provides scripting, filming, commercial video production, editing, motion graphics, voiceovers, and post-production in Bharatpur, Nepal.";
+
+export const metadata = createPageMetadata({
+  title,
+  description,
+  path: "/studio",
+});
 
 export default function Page() {
-  const { data, isLoading, isError, error } = useStudio();
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Video Production and Post-Production",
+    description,
+    provider: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Nepal",
+    },
+    serviceType: [
+      "Commercial video production",
+      "Brand films",
+      "Video editing",
+      "Motion graphics",
+      "Voiceovers",
+      "Post-production",
+    ],
+  };
 
   return (
     <>
+      <JsonLd
+        data={[
+          {
+            ...createWebPageJsonLd({ title, description, path: "/studio" }),
+            "@type": "CollectionPage",
+          },
+          createBreadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Studio", path: "/studio" },
+          ]),
+          serviceJsonLd,
+        ]}
+      />
       <StudioHero />
-
-      <section className="bg-bg-page">
-        <div className="container-custom px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-black tracking-tight text-text-heading sm:text-4xl lg:text-5xl">
-              Stories Crafted Through{" "}
-              <span className="bg-linear-to-r from-brand-500 via-purple-500 to-accent bg-clip-text text-transparent">
-                Motion
-              </span>
-            </h2>
-
-            <p className="mt-5 max-w-2xl text-base leading-7 text-text-body md:text-lg">
-              A selection of our commercial films, brand stories, and creative
-              productions—crafted to captivate audiences and elevate brands.
-            </p>
-          </div>
-
-          <div className="mt-12 lg:mt-16">
-            {/* Loading */}
-            {isLoading && (
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
-                {Array.from({ length: 3 }).map((_, index) => (
-                  <StudioCardSkeleton key={index} />
-                ))}
-              </div>
-            )}
-
-            {/* Error */}
-            {!isLoading && isError && (
-              <div className="flex min-h-60 items-center justify-center rounded-3xl border border-border bg-bg-surface px-6 text-center">
-                <p className="text-text-muted">
-                  {error?.message || "Unable to load studio videos."}
-                </p>
-              </div>
-            )}
-
-            {/* Empty */}
-            {!isLoading && !isError && (!data || data.length === 0) && (
-              <div className="flex min-h-60 items-center justify-center rounded-3xl border border-border bg-bg-surface px-6 text-center">
-                <p className="text-text-muted">No studio videos available.</p>
-              </div>
-            )}
-
-            {/* Success */}
-            {!isLoading && !isError && data && data.length > 0 && (
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
-                {data.map((studio) => (
-                  <StudioCard key={studio.id} studio={studio} />
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
+      <StudioProjects />
     </>
   );
 }

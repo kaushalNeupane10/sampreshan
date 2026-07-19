@@ -32,10 +32,10 @@ export default function HeroSection() {
             {/* Description */}
 
             <p className="mt-6 max-w-2xl text-sm leading-7 text-white/90 min-[380px]:text-base sm:mt-8 sm:text-lg sm:leading-8">
-              From professional graphic design and cinematic video production to
-              digital marketing campaigns and modern web development, we help
-              businesses stand out, engage audiences, and achieve measurable
-              growth.
+              Based in Bharatpur, Nepal, Sampreshan Media combines professional
+              graphic design, cinematic video production, digital marketing,
+              and modern web development to help businesses stand out, engage
+              audiences, and achieve measurable growth.
             </p>
 
             {/* CTA */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
               </Link>
 
               <Link
-                href="/services"
+                href="#services-heading"
                 className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white hover:text-(--color-brand) sm:px-7 sm:py-4 sm:text-base"
               >
                 Explore Services

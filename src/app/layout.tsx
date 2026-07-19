@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MaintenancePage from "@/components/maintenance/MaintenancePage";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import { siteConfig } from "@/config/siteConfig";
 import { isMaintenanceMode } from "@/lib/maintenance";
 import { QueryProvider } from "@/providers/QueryProvider";
 
@@ -21,15 +22,16 @@ const geistMono = Geist_Mono({
 });
 
 const siteMetadata: Metadata = {
-  metadataBase: new URL("https://sampreshan.com"),
+  metadataBase: new URL(siteConfig.url),
+
+  applicationName: siteConfig.name,
 
   title: {
     default: "Sampreshan Media",
     template: "%s | Sampreshan Media",
   },
 
-  description:
-    "Sampreshan Media provides modern digital media, branding, communication, and creative solutions for businesses.",
+  description: siteConfig.description,
 
   keywords: [
     "Sampreshan",
@@ -49,6 +51,10 @@ const siteMetadata: Metadata = {
 
   creator: "Sampreshan Media",
 
+  publisher: "Sampreshan Media",
+
+  category: "Creative and technology services",
+
   manifest: "/site.webmanifest",
 
   icons: {
@@ -62,21 +68,39 @@ const siteMetadata: Metadata = {
 
   openGraph: {
     title: "Sampreshan Media",
-    description: "Modern media and creative communication solutions.",
+    description: siteConfig.description,
+    url: siteConfig.url,
     type: "website",
-    locale: "en_US",
+    locale: "en_NP",
     siteName: "Sampreshan Media",
   },
 
   twitter: {
     card: "summary_large_image",
     title: "Sampreshan Media",
-    description: "Modern media and creative communication solutions.",
+    description: siteConfig.description,
+  },
+
+  alternates: {
+    canonical: siteConfig.url,
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -104,6 +128,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
       <body

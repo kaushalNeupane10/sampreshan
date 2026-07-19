@@ -5,11 +5,11 @@ import { MAIN_NAVIGATION } from "@/config/navConfig";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 const SERVICES = [
-  { label: "Graphic Design", href: "#" },
-  { label: "Digital Marketing", href: "#" },
-  { label: "Video Production", href: "#" },
-  { label: "Web Development", href: "#" },
-  { label: "IT Solutions", href: "#" },
+  { label: "Graphic Design", href: "/#services-heading" },
+  { label: "Digital Marketing", href: "/#services-heading" },
+  { label: "Video Production", href: "/studio" },
+  { label: "Web Development", href: "/#services-heading" },
+  { label: "IT Solutions", href: "/#services-heading" },
 ];
 
 const LEGAL = [

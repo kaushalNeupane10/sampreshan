@@ -1,9 +1,7 @@
 import { ExternalLink, Mail, MapPin, MapPinned, Phone } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
-const officeCoordinates = {
-  latitude: 27.690146226344098,
-  longitude: 84.43136800840769,
-};
+const officeCoordinates = siteConfig.geo;
 
 const coordinateQuery = `${officeCoordinates.latitude},${officeCoordinates.longitude}`;
 const googleMapsEmbedUrl = `https://maps.google.com/maps?q=${coordinateQuery}&z=16&output=embed`;
@@ -13,9 +11,9 @@ export default function ContactInfo() {
   return (
     <section>
       <div className="max-w-md">
-        <h2 className="text-3xl font-bold text-text-heading md:text-4xl">
-          Get in touch
-        </h2>
+        <h1 className="text-3xl font-bold text-text-heading md:text-4xl">
+          Contact Sampreshan Media
+        </h1>
 
         <p className="mt-4 text-base leading-7 text-text-body">
           Prefer email or a call? Reach us directly using the contact details
@@ -33,10 +31,10 @@ export default function ContactInfo() {
             <h3 className="font-semibold text-text-heading">Email</h3>
 
             <a
-              href="mailto:contact@sampreshanmedia.com"
+              href={`mailto:${siteConfig.email}`}
               className="mt-1 block text-text-body transition-colors hover:text-brand"
             >
-              contact@sampreshanmedia.com
+              {siteConfig.email}
             </a>
           </div>
         </div>
@@ -50,7 +48,7 @@ export default function ContactInfo() {
             <h3 className="font-semibold text-text-heading">Phone</h3>
 
             <a
-              href="tel:+9779807126533"
+              href={`tel:${siteConfig.telephone}`}
               className="mt-1 block text-text-body transition-colors hover:text-brand"
             >
               +977 9807126533
@@ -67,7 +65,7 @@ export default function ContactInfo() {
             <h3 className="font-semibold text-text-heading">Office</h3>
 
             <p className="mt-1 leading-7 text-text-body">
-              Find our precise location on the interactive map below.
+              Bharatpur 10, Bagmati, Nepal 44207
             </p>
           </div>
         </div>
@@ -111,7 +109,7 @@ export default function ContactInfo() {
                 Visit our office
               </p>
               <p className="mt-0.5 text-xs text-text-muted">
-                27.690146° N, 84.431368° E
+                Bharatpur 10, Bagmati, Nepal 44207
               </p>
             </div>
           </div>

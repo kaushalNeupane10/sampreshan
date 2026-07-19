@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config/siteConfig";
 import { isMaintenanceMode } from "@/lib/maintenance";
-
-const siteUrl = "https://sampreshan.com";
 
 export default function robots(): MetadataRoute.Robots {
   if (isMaintenanceMode()) {
@@ -18,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }
