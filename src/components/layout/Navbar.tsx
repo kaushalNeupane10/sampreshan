@@ -27,7 +27,8 @@ export default function Navbar() {
   }, []);
 
   // Let full-bleed heroes sit behind the navigation until the page is scrolled.
-  const hasFullBleedHero = pathname === "/" || pathname === "/studio";
+  const avoidTp=["/about","/pricing","/contact"];
+  const hasFullBleedHero = !avoidTp.includes(pathname);
   const transparent = hasFullBleedHero && !scrolled;
 
   return (
