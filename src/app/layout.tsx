@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { connection } from "next/server";
 
 import "./globals.css";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MaintenancePage from "@/components/maintenance/MaintenancePage";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import { isMaintenanceMode } from "@/lib/maintenance";
 import { QueryProvider } from "@/providers/QueryProvider";
 
 const geistSans = Geist({
@@ -18,7 +21,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+const siteMetadata: Metadata = {
   metadataBase: new URL("https://sampreshan.com"),
 
   title: {
@@ -67,11 +70,35 @@ export const metadata: Metadata = {
   },
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  await connection();
+
+  if (!isMaintenanceMode()) {
+    return siteMetadata;
+  }
+
+  return {
+    ...siteMetadata,
+    title: "We’ll be back soon | Sampreshan Media",
+    description:
+      "Sampreshan Media is currently undergoing scheduled maintenance.",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
+export default async function RootLayout({
+  children,
+}: Readonly<RootLayoutProps>) {
+  await connection();
+  const maintenanceMode = isMaintenanceMode();
+
   return (
     <html
       lang="en"
@@ -82,16 +109,20 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
         suppressHydrationWarning
         className="min-h-screen bg-bg-page font-sans text-text-body antialiased"
       >
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
+        {maintenanceMode ? (
+          <MaintenancePage />
+        ) : (
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
 
-          <main id="main-content" className="flex-1">
-            <QueryProvider>{children}</QueryProvider>
-          </main>
+            <main id="main-content" className="flex-1">
+              <QueryProvider>{children}</QueryProvider>
+            </main>
 
-          <Footer />
-          <ScrollToTop />
-        </div>
+            <Footer />
+            <ScrollToTop />
+          </div>
+        )}
       </body>
     </html>
   );

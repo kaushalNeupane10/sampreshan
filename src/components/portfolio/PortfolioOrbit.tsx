@@ -4,13 +4,13 @@ import type { PointerEvent, ReactNode } from "react";
 import { useState } from "react";
 import Image from "next/image";
 import { Camera, Drone } from "lucide-react";
-import { SiDjango, SiFlutter, SiPython } from "react-icons/si";
+import { SiDjango, SiFlutter, SiNextdotjs, SiPython } from "react-icons/si";
 
 interface Tool {
   key: string;
   label: string;
   discipline: string;
-  asset: string;
+  asset?: string;
   accent: string;
   fallback: ReactNode;
 }
@@ -39,6 +39,13 @@ const tools: Tool[] = [
     asset: "/portfolio/assets/django.svg",
     accent: "text-emerald-400",
     fallback: <SiDjango className="h-7 w-7" aria-hidden="true" />,
+  },
+  {
+    key: "nextjs",
+    label: "Next.js",
+    discipline: "Web applications",
+    accent: "text-white",
+    fallback: <SiNextdotjs className="h-7 w-7" aria-hidden="true" />,
   },
   {
     key: "after-effects",
@@ -109,7 +116,7 @@ const tools: Tool[] = [
 function ToolVisual({ tool }: { tool: Tool }) {
   const [assetUnavailable, setAssetUnavailable] = useState(false);
 
-  if (assetUnavailable) {
+  if (!tool.asset || assetUnavailable) {
     return tool.fallback;
   }
 
