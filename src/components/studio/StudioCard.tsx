@@ -33,7 +33,6 @@ export default function StudioCard({ studio }: StudioCardProps) {
             src={previewImage}
             alt={`${studio.title} preview`}
             fill
-            unoptimized
             className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
@@ -84,7 +83,6 @@ export default function StudioCard({ studio }: StudioCardProps) {
                 alt={`${clientName} logo`}
                 width={40}
                 height={40}
-                unoptimized
                 className="max-h-10 max-w-10 object-contain"
               />
             ) : (

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { connection } from "next/server";
 
 import "./globals.css";
 
@@ -50,6 +49,17 @@ const siteMetadata: Metadata = {
 
   creator: "Sampreshan Media",
 
+  manifest: "/site.webmanifest",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+
   openGraph: {
     title: "Sampreshan Media",
     description: "Modern media and creative communication solutions.",
@@ -70,14 +80,10 @@ const siteMetadata: Metadata = {
   },
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  await connection();
+const maintenanceMode = isMaintenanceMode();
 
-  if (!isMaintenanceMode()) {
-    return siteMetadata;
-  }
-
-  return {
+export const metadata: Metadata = maintenanceMode
+  ? {
     ...siteMetadata,
     title: "We’ll be back soon | Sampreshan Media",
     description:
@@ -86,19 +92,14 @@ export async function generateMetadata(): Promise<Metadata> {
       index: false,
       follow: false,
     },
-  };
-}
+  }
+  : siteMetadata;
 
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default async function RootLayout({
-  children,
-}: Readonly<RootLayoutProps>) {
-  await connection();
-  const maintenanceMode = isMaintenanceMode();
-
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html
       lang="en"

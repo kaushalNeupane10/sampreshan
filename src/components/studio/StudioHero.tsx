@@ -14,6 +14,7 @@ export default function StudioHero() {
         loop
         playsInline
         preload="metadata"
+        poster="/video/studioHero-poster.jpg"
         aria-hidden="true"
         className="absolute inset-0 -z-30 h-full w-full object-cover"
       >

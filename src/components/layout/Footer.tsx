@@ -60,7 +60,6 @@ export default function Footer() {
                   fill
                   sizes="36px"
                   className="object-contain"
-                  priority
                 />
               </div>
               <span className="font-weight-bold">Sampreshan Media</span>

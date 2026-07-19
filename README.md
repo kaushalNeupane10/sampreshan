@@ -25,9 +25,9 @@ every route:
 MAINTENANCE_MODE=true
 ```
 
-Use `false` (or leave it unset) to show the normal website. Restart the Next.js
-server after changing the environment value. The setting is read at request time,
-so a new build is not required.
+Use `false` (or leave it unset) to show the normal website. Restart the development
+server after changing the value locally. In production, rebuild and redeploy after
+changing it so Next.js can statically optimize the site.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

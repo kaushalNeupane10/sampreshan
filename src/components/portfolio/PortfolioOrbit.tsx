@@ -10,9 +10,8 @@ interface Tool {
   key: string;
   label: string;
   discipline: string;
-  asset?: string;
   accent: string;
-  fallback: ReactNode;
+  visual: ReactNode;
 }
 
 const tools: Tool[] = [
@@ -20,40 +19,36 @@ const tools: Tool[] = [
     key: "flutter",
     label: "Flutter",
     discipline: "Mobile experiences",
-    asset: "/portfolio/assets/flutter.svg",
     accent: "text-sky-400",
-    fallback: <SiFlutter className="h-7 w-7" aria-hidden="true" />,
+    visual: <SiFlutter className="h-7 w-7" aria-hidden="true" />,
   },
   {
     key: "python",
     label: "Python",
     discipline: "Digital products",
-    asset: "/portfolio/assets/python.svg",
     accent: "text-amber-300",
-    fallback: <SiPython className="h-7 w-7" aria-hidden="true" />,
+    visual: <SiPython className="h-7 w-7" aria-hidden="true" />,
   },
   {
     key: "django",
     label: "Django",
     discipline: "Web platforms",
-    asset: "/portfolio/assets/django.svg",
     accent: "text-emerald-400",
-    fallback: <SiDjango className="h-7 w-7" aria-hidden="true" />,
+    visual: <SiDjango className="h-7 w-7" aria-hidden="true" />,
   },
   {
     key: "nextjs",
     label: "Next.js",
     discipline: "Web applications",
     accent: "text-white",
-    fallback: <SiNextdotjs className="h-7 w-7" aria-hidden="true" />,
+    visual: <SiNextdotjs className="h-7 w-7" aria-hidden="true" />,
   },
   {
     key: "after-effects",
     label: "After Effects",
     discipline: "Motion design",
-    asset: "/portfolio/assets/after-effects.svg",
     accent: "text-violet-300",
-    fallback: (
+    visual: (
       <span className="text-lg font-black tracking-tight" aria-hidden="true">
         Ae
       </span>
@@ -63,9 +58,8 @@ const tools: Tool[] = [
     key: "photoshop",
     label: "Photoshop",
     discipline: "Graphic design",
-    asset: "/portfolio/assets/photoshop.svg",
     accent: "text-sky-300",
-    fallback: (
+    visual: (
       <span className="text-lg font-black tracking-tight" aria-hidden="true">
         Ps
       </span>
@@ -75,9 +69,8 @@ const tools: Tool[] = [
     key: "illustrator",
     label: "Illustrator",
     discipline: "Brand identities",
-    asset: "/portfolio/assets/illustrator.svg",
     accent: "text-orange-300",
-    fallback: (
+    visual: (
       <span className="text-lg font-black tracking-tight" aria-hidden="true">
         Ai
       </span>
@@ -87,9 +80,8 @@ const tools: Tool[] = [
     key: "premiere-pro",
     label: "Premiere Pro",
     discipline: "Film editing",
-    asset: "/portfolio/assets/premiere-pro.svg",
     accent: "text-fuchsia-300",
-    fallback: (
+    visual: (
       <span className="text-lg font-black tracking-tight" aria-hidden="true">
         Pr
       </span>
@@ -99,37 +91,20 @@ const tools: Tool[] = [
     key: "drone",
     label: "Drone",
     discipline: "Aerial production",
-    asset: "/portfolio/assets/drone.png",
     accent: "text-accent",
-    fallback: <Drone className="h-7 w-7" aria-hidden="true" />,
+    visual: <Drone className="h-7 w-7" aria-hidden="true" />,
   },
   {
     key: "camera",
     label: "Camera",
     discipline: "Visual storytelling",
-    asset: "/portfolio/assets/camera.png",
     accent: "text-blue-300",
-    fallback: <Camera className="h-7 w-7" aria-hidden="true" />,
+    visual: <Camera className="h-7 w-7" aria-hidden="true" />,
   },
 ];
 
 function ToolVisual({ tool }: { tool: Tool }) {
-  const [assetUnavailable, setAssetUnavailable] = useState(false);
-
-  if (!tool.asset || assetUnavailable) {
-    return tool.fallback;
-  }
-
-  return (
-    <Image
-      src={tool.asset}
-      alt=""
-      fill
-      sizes="64px"
-      className="object-contain p-3"
-      onError={() => setAssetUnavailable(true)}
-    />
-  );
+  return tool.visual;
 }
 
 export default function PortfolioOrbit() {

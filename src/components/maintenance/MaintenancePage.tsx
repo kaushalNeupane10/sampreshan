@@ -28,7 +28,7 @@ export default function MaintenancePage() {
               src="/logo/Sampresan.png"
               alt="Sampreshan Media"
               fill
-              priority
+              preload
               sizes="48px"
               className="object-contain p-1"
             />
