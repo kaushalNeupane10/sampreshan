@@ -58,6 +58,7 @@ export type SitePath =
   | "/careers"
   | "/contact"
   | "/portfolio"
+  | "/privacy"
   | "/pricing"
   | "/studio"
   | "/terms";
