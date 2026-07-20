@@ -9,4 +9,6 @@ export const QUERY_KEYS = {
   testimonials: ["testimonials"] as const,
   careers: ["careers"] as const,
   careersApply: ["careersApply"] as const,
+  contactInquiry: ["contactInquiry"] as const,
+  packageInquiry: ["packageInquiry"] as const,
 } as const;

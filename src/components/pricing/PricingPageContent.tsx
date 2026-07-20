@@ -1,13 +1,18 @@
 "use client";
 
+import { useState } from "react";
+
+import PackageInquiryModal from "@/components/pricing/PackageInquiryModal";
 import PricingCard from "@/components/pricing/PricingCard";
 import PricingCardSkeleton from "@/components/pricing/PricingCardSkeleton";
 import PricingFaq from "@/components/pricing/PricingFaq";
 import { pricingFaqs } from "@/data/pricingFAQ";
 import usePricing from "@/hook/pricing/usePricing";
+import type { PricingPlan } from "@/types/pricing";
 
 export default function PricingPageContent() {
   const { data, isLoading, isError, error } = usePricing();
+  const [selectedPlan, setSelectedPlan] = useState<PricingPlan | null>(null);
 
   return (
     <>
@@ -40,13 +45,22 @@ export default function PricingPageContent() {
         {!isLoading && !isError && data && data.length > 0 && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {data.map((plan) => (
-              <PricingCard key={plan.id} plan={plan} />
+              <PricingCard
+                key={plan.id}
+                plan={plan}
+                onInquire={setSelectedPlan}
+              />
             ))}
           </div>
         )}
       </section>
 
       <PricingFaq faqs={pricingFaqs} />
+
+      <PackageInquiryModal
+        plan={selectedPlan}
+        onClose={() => setSelectedPlan(null)}
+      />
     </>
   );
 }

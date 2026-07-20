@@ -4,6 +4,7 @@ import { PricingPlan } from "@/types/pricing";
 
 interface PricingCardProps {
   plan: PricingPlan;
+  onInquire: (plan: PricingPlan) => void;
 }
 
 const formatPrice = (price: string) => {
@@ -15,7 +16,7 @@ const formatPrice = (price: string) => {
   }).format(numericPrice);
 };
 
-export default function PricingCard({ plan }: PricingCardProps) {
+export default function PricingCard({ plan, onInquire }: PricingCardProps) {
   const isFeatured = plan.is_featured;
 
   return (
@@ -134,8 +135,10 @@ export default function PricingCard({ plan }: PricingCardProps) {
       {/* 5. Call to Action Button Wrapper */}
       <div className="mt-8 pt-4">
         <Button
+          type="button"
           fullWidth
           variant={isFeatured ? "primary" : "outline"}
+          onClick={() => onInquire(plan)}
           className={`py-3 font-bold transition-all duration-300 ${
             isFeatured
               ? "shadow-brand hover:brightness-110"

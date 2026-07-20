@@ -15,7 +15,11 @@ export const API_ENDPOINTS = {
 
   careers: "/public/careers/",
 
-  serviceOption: "/public/service/",
+  serviceOption: "/public/services/",
+
+  contactInquiries: "/public/contact-inquiries/",
+
+  packageInquiries: "/public/package-inquiries/",
 
   careersApply: (slug: string) => `/public/careers/${slug}/apply/`,
 } as const;
