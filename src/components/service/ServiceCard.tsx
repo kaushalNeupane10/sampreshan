@@ -17,9 +17,9 @@ export default function ServiceCard({ service }: ServiceCardProps) {
     <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-bg-surface p-7 transition-all duration-300 ease-out will-change-transform hover:-translate-y-2 hover:border-brand-200 hover:shadow-xl hover:shadow-brand/5">
       {/* Semantic Full-Card Anchor Action Link */}
       <Link
-        href={`/services/${service.slug}`}
+        href="/contact"
         className="absolute inset-0 z-20 cursor-pointer rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus"
-        aria-label={`Learn more about our ${service.name} services`}
+        aria-label={`Discuss a ${service.name} project with Sampreshan Media`}
       />
 
       {/* Top Row Grid Layout Indicator */}

@@ -4,19 +4,39 @@ import { siteConfig } from "@/config/siteConfig";
 const routes = [
   { path: "", priority: 1, changeFrequency: "weekly" as const },
   { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/portfolio", priority: 0.9, changeFrequency: "weekly" as const },
-  { path: "/studio", priority: 0.8, changeFrequency: "weekly" as const },
+  {
+    path: "/portfolio",
+    priority: 0.9,
+    changeFrequency: "weekly" as const,
+    images: ["/portfolio/bg.png"],
+  },
+  {
+    path: "/studio",
+    priority: 0.8,
+    changeFrequency: "weekly" as const,
+    images: ["/video/studioHero-poster.jpg"],
+  },
   { path: "/pricing", priority: 0.8, changeFrequency: "weekly" as const },
-  { path: "/careers", priority: 0.6, changeFrequency: "weekly" as const },
+  {
+    path: "/careers",
+    priority: 0.6,
+    changeFrequency: "weekly" as const,
+    images: ["/career/careers.jpg"],
+  },
   { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
   { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map(({ path, priority, changeFrequency }) => ({
+  return routes.map(({ path, priority, changeFrequency, ...route }) => ({
     url: `${siteConfig.url}${path}`,
     changeFrequency,
     priority,
+    ...(route.images
+      ? {
+          images: route.images.map((image) => `${siteConfig.url}${image}`),
+        }
+      : {}),
   }));
 }

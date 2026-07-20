@@ -155,7 +155,7 @@ export default function Footer() {
 
       {/* Production-grade Bottom Anchor Banner */}
       <div className="border-t border-border-subtle bg-bg-sunken">
-        <div className="mx-auto flex max-w-(--container-width) flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between text-xs text-text-muted">
+        <div className="mx-auto flex max-w-(--container-width) flex-col gap-4 px-6 py-6 text-xs text-text-body sm:flex-row sm:items-center sm:justify-between">
           <div>&copy; {currentYear} Sampreshan Media. All rights reserved.</div>
           <div className="flex items-center gap-2">
             <span className="font-weight-medium text-text-heading">

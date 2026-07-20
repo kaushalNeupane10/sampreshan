@@ -5,9 +5,10 @@ import { getPortfolio } from "@/services/portfolio.service";
 import { PortfolioData } from "@/types/portfolio";
 import { QUERY_KEYS } from "@/lib/react-query";
 
-export default function usePortfolio() {
+export default function usePortfolio(initialData?: PortfolioData) {
   return useQuery<PortfolioData>({
     queryKey: QUERY_KEYS.portfolio,
     queryFn: getPortfolio,
+    initialData,
   });
 }

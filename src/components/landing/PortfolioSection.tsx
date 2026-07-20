@@ -3,13 +3,21 @@
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 import PortfolioCardSkeleton from "@/components/portfolio/PortfolioCardSkeleton";
 import usePortfolio from "@/hook/portfolio/usePortfolio";
+import type { PortfolioData } from "@/types/portfolio";
 
-export default function PortfolioSection() {
-  const { data, isLoading, isError, error } = usePortfolio();
+interface PortfolioSectionProps {
+  initialData?: PortfolioData;
+}
+
+export default function PortfolioSection({
+  initialData,
+}: PortfolioSectionProps) {
+  const { data, isLoading, isError, error } = usePortfolio(initialData);
 
   return (
     <section
       id="featured-work"
+      aria-labelledby="featured-work-heading"
       className="bg-sunken relative scroll-mt-20 overflow-hidden py-20 md:py-28"
     >
       <div className="bg-brand-subtle pointer-events-none absolute top-0 left-1/4 h-96 w-96 rounded-full opacity-50 blur-3xl" />
@@ -18,7 +26,10 @@ export default function PortfolioSection() {
       <div className="container-custom relative z-10 px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
-          <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-text-heading sm:text-4xl lg:text-5xl">
+          <h2
+            id="featured-work-heading"
+            className="mt-4 text-3xl font-black leading-tight tracking-tight text-text-heading sm:text-4xl lg:text-5xl"
+          >
             Work That Speaks for Itself
           </h2>
         </div>

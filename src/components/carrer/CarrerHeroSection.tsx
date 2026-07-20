@@ -56,7 +56,7 @@ export default function CareerHeroSection() {
               id="careers-hero-title"
               className="mt-6 text-balance text-[clamp(2.6rem,6vw,4.75rem)] font-black leading-[1.05] tracking-tight text-text-heading"
             >
-              Do work that moves
+              Build a career that moves
               <span className="block text-brand">ideas forward.</span>
             </h1>
 

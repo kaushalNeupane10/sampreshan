@@ -19,7 +19,6 @@ export default function BrandLogoCard({ brand }: Props) {
             alt={brand.company_name}
             width={90}
             height={90}
-            unoptimized
             className="h-auto w-10 object-contain transition-transform duration-300 group-hover:scale-110 group-focus-within:scale-110 sm:w-12 md:w-14 lg:w-16"
           />
         </div>

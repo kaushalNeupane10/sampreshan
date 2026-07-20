@@ -53,19 +53,34 @@ export function createWebPageJsonLd({
     isPartOf: {
       "@id": `${siteConfig.url}/#website`,
     },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
     about: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    inLanguage: "en",
+    breadcrumb:
+      path === "/"
+        ? undefined
+        : {
+            "@id": `${url}/#breadcrumb`,
+          },
+    inLanguage: "en-NP",
   };
 }
 
 export function createBreadcrumbJsonLd(
   items: ReadonlyArray<{ name: string; path: SitePath }>,
 ) {
+  const currentPage = items[items.length - 1];
+  const currentPageUrl = `${siteConfig.url}${
+    currentPage.path === "/" ? "" : currentPage.path
+  }`;
+
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${currentPageUrl}/#breadcrumb`,
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
