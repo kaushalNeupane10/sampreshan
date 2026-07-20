@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Globe, ShieldCheck } from "lucide-react";
+import { Globe, ShieldCheck, UserRound } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { teamMember } from "@/types/team";
 
@@ -35,15 +35,20 @@ export default function TeamCard({ member }: TeamCardProps) {
 
         {/* Border Ring Wrapping the Image */}
         <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border-2 border-border-subtle bg-bg-sunken">
-          <Image
-            src={member.photo || "/images/avatar-placeholder.png"}
-            alt={`${member.name}'s profile`}
-            width={112}
-            height={112}
-            unoptimized
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            priority={member.is_featured}
-          />
+          {member.photo ? (
+            <Image
+              src={member.photo}
+              alt={`${member.name}'s profile`}
+              width={112}
+              height={112}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <UserRound
+              className="h-12 w-12 text-text-muted"
+              aria-hidden="true"
+            />
+          )}
         </div>
       </div>
 

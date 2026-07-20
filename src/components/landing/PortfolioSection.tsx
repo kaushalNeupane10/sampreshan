@@ -8,7 +8,10 @@ export default function PortfolioSection() {
   const { data, isLoading, isError, error } = usePortfolio();
 
   return (
-    <section className="bg-sunken relative overflow-hidden py-20 md:py-28">
+    <section
+      id="featured-work"
+      className="bg-sunken relative scroll-mt-20 overflow-hidden py-20 md:py-28"
+    >
       <div className="bg-brand-subtle pointer-events-none absolute top-0 left-1/4 h-96 w-96 rounded-full opacity-50 blur-3xl" />
       <div className="bg-accent-subtle pointer-events-none absolute right-1/4 bottom-0 h-96 w-96 rounded-full opacity-30 blur-3xl" />
 

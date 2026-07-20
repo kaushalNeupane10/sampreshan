@@ -8,3 +8,10 @@ export interface Service {
 }
 
 export type ServiceData = Service[];
+
+export interface ServiceOption {
+  id: number;
+  name: string;
+}
+
+export type ServiceOptionData = ServiceOption[];

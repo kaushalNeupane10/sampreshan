@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Link from "next/link";
 import {
   Upload,
   CheckCircle,
@@ -359,7 +360,21 @@ export default function CareerApplyForm({
           )}
         </Button>
         <p className="mt-3 text-center text-xs text-text-muted">
-          By submitting, you agree to our privacy policy and terms of service.
+          By submitting, you agree to our{" "}
+          <Link
+            href="/privacy"
+            className="font-medium text-brand underline underline-offset-2"
+          >
+            privacy policy
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="/terms"
+            className="font-medium text-brand underline underline-offset-2"
+          >
+            terms of service
+          </Link>
+          .
         </p>
       </div>
     </form>

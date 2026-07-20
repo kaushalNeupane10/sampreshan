@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { Play, ExternalLink } from "lucide-react";
+import { Clapperboard, ExternalLink, Play } from "lucide-react";
 import { Portfolio } from "@/types/portfolio";
 
 interface StudioCardProps {
@@ -9,6 +9,8 @@ interface StudioCardProps {
 
 export default function StudioCard({ studio }: StudioCardProps) {
   const targetUrl = studio.url || "#";
+  const clientName = studio.client_name || "Client";
+  const previewImage = studio.image || studio.client_logo;
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-bg-surface shadow-md transition-all duration-300 ease-out will-change-transform hover:-translate-y-2 hover:border-brand hover:shadow-brand">
@@ -26,14 +28,22 @@ export default function StudioCard({ studio }: StudioCardProps) {
       {/* 1. Video Thumbnail Preview Block */}
       <div className="relative aspect-video overflow-hidden bg-bg-sunken select-none">
         {/* Project Cover Image */}
-        <Image
-          src={studio?.image || studio.client_logo}
-          alt={`${studio.title} preview`}
-          fill
-          unoptimized
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+        {previewImage ? (
+          <Image
+            src={previewImage}
+            alt={`${studio.title} preview`}
+            fill
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-linear-to-br from-brand-950 to-neutral-900 text-white/70">
+            <Clapperboard className="h-9 w-9" aria-hidden="true" />
+            <span className="text-xs font-semibold tracking-widest uppercase">
+              Studio project
+            </span>
+          </div>
+        )}
 
         {/* Premium Dark Scrim Overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-95" />
@@ -67,19 +77,25 @@ export default function StudioCard({ studio }: StudioCardProps) {
         {/* Header Block with Brand Logo */}
         <div className="mb-5 flex items-center gap-4">
           <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border bg-bg-page shadow-2xs">
-            <Image
-              src={studio.client_logo}
-              alt={`${studio.client_name} logo`}
-              width={40}
-              height={40}
-              className="max-h-10 max-w-10 object-contain"
-              unoptimized
-            />
+            {studio.client_logo ? (
+              <Image
+                src={studio.client_logo}
+                alt={`${clientName} logo`}
+                width={40}
+                height={40}
+                className="max-h-10 max-w-10 object-contain"
+              />
+            ) : (
+              <Clapperboard
+                className="h-6 w-6 text-brand"
+                aria-hidden="true"
+              />
+            )}
           </div>
 
           <div className="min-w-0">
             <span className="text-[10px] font-bold tracking-widest text-brand uppercase block mb-0.5">
-              {studio.client_name || "Client"}
+              {clientName}
             </span>
             <h3 className="text-pretty line-clamp-2 text-xl font-bold tracking-tight text-text-heading group-hover:text-brand transition-colors duration-300">
               {studio.title}

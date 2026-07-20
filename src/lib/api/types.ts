@@ -2,7 +2,7 @@ export interface ApiResponse<T> {
   success: boolean;
   status_code: number;
   message: string;
-  results: T;
+  results: T[];
   pagination: {
     count: number;
     current_page: number;

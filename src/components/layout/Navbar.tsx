@@ -26,8 +26,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Determine when navbar should be transparent
-  const transparent = pathname === "/" && !scrolled;
+  // Let full-bleed heroes sit behind the navigation until the page is scrolled.
+  const showTp=["/terms","/","/portfolio","/studio","/privacy"];
+  const hasFullBleedHero = showTp.includes(pathname);
+  const transparent = hasFullBleedHero && !scrolled;
 
   return (
     <>
@@ -47,14 +49,14 @@ export default function Navbar() {
                   src="/logo/Sampresan.png"
                   alt="Sampreshan"
                   fill
-                  priority
+                  preload
                   sizes="44px"
                   className="object-contain p-1"
                 />
               </div>
 
               <div className="hidden min-[360px]:block">
-                <h1
+                <p
                   className={`text-lg font-black transition-colors duration-300 ${
                     transparent
                       ? "text-white"
@@ -62,7 +64,7 @@ export default function Navbar() {
                   }`}
                 >
                   Sampreshan
-                </h1>
+                </p>
                 <p
                   className={`text-[11px] uppercase tracking-[0.25em] ${
                     transparent ? "text-white/70" : "text-text-muted"

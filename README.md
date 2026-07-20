@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Maintenance mode
+
+Set the server-only environment variable below to show the maintenance screen on
+every route:
+
+```bash
+MAINTENANCE_MODE=true
+```
+
+Use `false` (or leave it unset) to show the normal website. Restart the development
+server after changing the value locally. In production, rebuild and redeploy after
+changing it so Next.js can statically optimize the site.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
