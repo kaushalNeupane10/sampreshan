@@ -40,6 +40,14 @@ export default function ContactForm() {
           </div>
 
           <div>
+            <Input
+              label="Phone Number"
+              type="number"
+              placeholder="9801010101"
+            />
+          </div>
+
+          <div>
             <label className="mb-2 block text-sm font-medium text-text-heading">
               Service
             </label>
