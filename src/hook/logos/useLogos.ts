@@ -5,9 +5,10 @@ import { getLogos } from "@/services/logos.service";
 import { LogosData } from "@/types/logo";
 import { QUERY_KEYS } from "@/lib/react-query";
 
-export default function useLogo() {
+export default function useLogo(initialData?: LogosData) {
   return useQuery<LogosData>({
     queryKey: QUERY_KEYS.brands,
     queryFn: getLogos,
+    initialData,
   });
 }

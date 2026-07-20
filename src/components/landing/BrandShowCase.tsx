@@ -3,16 +3,24 @@
 import BrandLogoCard from "@/components/brand/BrandLogoCard";
 import BrandLogoCardSkeleton from "@/components/brand/BrandLogoCardSkeleton";
 import useLogo from "@/hook/logos/useLogos";
+import type { LogosData } from "@/types/logo";
 
-export default function BrandShowcase() {
-  const { data, isLoading, isError, error } = useLogo();
+interface BrandShowcaseProps {
+  initialData?: LogosData;
+}
+
+export default function BrandShowcase({ initialData }: BrandShowcaseProps) {
+  const { data, isLoading, isError, error } = useLogo(initialData);
 
   return (
-    <section className="py-20 lg:py-28">
+    <section aria-labelledby="brand-showcase-heading" className="py-20 lg:py-28">
       <div className="container-custom px-5 lg:px-8">
         {/* Section Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mt-5 text-3xl font-bold text-text-heading md:text-4xl lg:text-5xl">
+          <h2
+            id="brand-showcase-heading"
+            className="mt-5 text-3xl font-bold text-text-heading md:text-4xl lg:text-5xl"
+          >
             Brands We&apos;ve Worked With
           </h2>
 

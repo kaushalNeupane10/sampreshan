@@ -23,6 +23,7 @@ export default function TestimonialsCard({
       <div>
         {/* 1. Dynamic Stars Rating Row */}
         <div
+          role="img"
           className="mb-6 flex items-center gap-1"
           aria-label={`Rated ${ratingValue} out of 5 stars`}
         >
@@ -56,14 +57,13 @@ export default function TestimonialsCard({
               fill
               sizes="48px"
               className="object-cover"
-              unoptimized
             />
           </div>
 
           <div className="min-w-0">
-            <h4 className="text-sm font-bold text-text-heading tracking-tight leading-tight">
+            <h3 className="text-sm font-bold text-text-heading tracking-tight leading-tight">
               {testimonial.person_name}
-            </h4>
+            </h3>
             <p className="text-xs text-text-body/80 font-medium leading-normal">
               {testimonial.job_title}
             </p>
@@ -81,7 +81,6 @@ export default function TestimonialsCard({
                 fill
                 sizes="80px"
                 className="object-contain p-1"
-                unoptimized
               />
             </div>
           )}

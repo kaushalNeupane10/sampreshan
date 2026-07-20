@@ -1,0 +1,28 @@
+# Sampreshan Media
+
+> Sampreshan Media is a creative and technology agency in Bharatpur, Nepal, providing branding, digital marketing, video production, web and mobile development, and IT solutions.
+
+Sampreshan Media works with organizations that need strategy, creative production, campaigns, software, or ongoing technical support. The agency is located in Bharatpur 10, Bagmati, Nepal. For project inquiries, use the contact page. For a specific pricing package, use the inquiry action on the pricing page.
+
+## Primary pages
+
+- [Home](https://sampreshanmedia.com/): Overview of Sampreshan Media, its services, selected work, client brands, and testimonials.
+- [About](https://sampreshanmedia.com/about): Information about the agency, its approach, values, and team.
+- [Services](https://sampreshanmedia.com/#services-heading): Branding and graphic design, digital marketing, video production, web and mobile development, and IT solutions.
+- [Portfolio](https://sampreshanmedia.com/portfolio): Selected creative, media, and technology work.
+- [Studio](https://sampreshanmedia.com/studio): Video, audio, and production-studio capabilities and projects.
+- [Pricing](https://sampreshanmedia.com/pricing): Available service packages and package-specific inquiry options.
+- [Careers](https://sampreshanmedia.com/careers): Current career opportunities and application information.
+- [Contact](https://sampreshanmedia.com/contact): General project inquiry form and official contact details.
+
+## Contact
+
+- [Contact Sampreshan Media](https://sampreshanmedia.com/contact): The preferred channel for project and service inquiries.
+- [Email](mailto:contact@sampreshanmedia.com): contact@sampreshanmedia.com.
+- [LinkedIn](https://np.linkedin.com/company/sampreshan-media): Official LinkedIn company profile.
+
+## Optional
+
+- [Privacy Policy](https://sampreshanmedia.com/privacy): How personal information and inquiry data are handled.
+- [Terms and Conditions](https://sampreshanmedia.com/terms): Terms governing use of the website and services.
+- [Sitemap](https://sampreshanmedia.com/sitemap.xml): Complete list of indexable website pages.

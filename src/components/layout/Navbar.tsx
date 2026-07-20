@@ -49,7 +49,6 @@ export default function Navbar() {
                   src="/logo/Sampresan.png"
                   alt="Sampreshan"
                   fill
-                  preload
                   sizes="44px"
                   className="object-contain p-1"
                 />

@@ -3,9 +3,14 @@
 import ServiceCard from "../service/ServiceCard";
 import ServiceCardSkeleton from "../service/ServiceCardSkeleton";
 import useServices from "@/hook/service/useService";
+import type { ServiceData } from "@/types/service";
 
-export default function ServicesSection() {
-  const { data, isLoading, isError, error } = useServices();
+interface ServicesSectionProps {
+  initialData?: ServiceData;
+}
+
+export default function ServicesSection({ initialData }: ServicesSectionProps) {
+  const { data, isLoading, isError, error } = useServices(initialData);
 
   return (
     <section

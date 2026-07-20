@@ -3,9 +3,16 @@
 import useTestimonials from "@/hook/testimonials/useTestimonials";
 import TestimonialsCard from "../testimonials/TestimonialsCard";
 import TestimonialsCardSkeleton from "../testimonials/TestimonialsCardSkeleton";
+import type { TestimonialsData } from "@/types/testimonials";
 
-export default function TestimonialsSection() {
-  const { data, isLoading, isError, error } = useTestimonials();
+interface TestimonialsSectionProps {
+  initialData?: TestimonialsData;
+}
+
+export default function TestimonialsSection({
+  initialData,
+}: TestimonialsSectionProps) {
+  const { data, isLoading, isError, error } = useTestimonials(initialData);
 
   return (
     <section

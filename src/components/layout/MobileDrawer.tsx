@@ -44,16 +44,18 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
     <>
       {/* Overlay */}
       <div
-        aria-hidden={!open}
+        aria-hidden="true"
         onClick={onClose}
         className={`fixed inset-0 z-40 bg-neutral-900/55 backdrop-blur-sm transition-opacity duration-200 ${open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       />
 
       {/* Drawer */}
-      <aside
+      <div
         role="dialog"
-        aria-modal="true"
+        aria-modal={open ? "true" : undefined}
+        aria-hidden={!open}
         aria-label="Mobile Navigation"
+        inert={!open}
         className={`fixed left-0 top-0 z-50 flex h-dvh w-[82%] max-w-sm flex-col border-r border-border bg-bg-surface shadow-xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Header */}
@@ -124,7 +126,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             &copy; 2026 Sampreshan Media. All rights reserved.
           </p>
         </div>
-      </aside>
+      </div>
     </>
   );
 }
