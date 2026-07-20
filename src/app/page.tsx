@@ -140,7 +140,11 @@ export default async function Page() {
       />
       <HeroSection />
       <ServicesSection initialData={homePageData.services} />
-      <PortfolioSection initialData={homePageData.portfolio} />
+      <PortfolioSection
+        initialData={homePageData.portfolio}
+        limit={3}
+        showViewAll
+      />
       <BrandShowcase initialData={homePageData.logos} />
       <TestimonialsSection initialData={homePageData.testimonials} />
     </>

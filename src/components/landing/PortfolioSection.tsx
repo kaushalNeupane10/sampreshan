@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import PortfolioCard from "@/components/portfolio/PortfolioCard";
 import PortfolioCardSkeleton from "@/components/portfolio/PortfolioCardSkeleton";
 import usePortfolio from "@/hook/portfolio/usePortfolio";
@@ -7,12 +8,18 @@ import type { PortfolioData } from "@/types/portfolio";
 
 interface PortfolioSectionProps {
   initialData?: PortfolioData;
+  limit?: number;
+  showViewAll?: boolean;
 }
 
 export default function PortfolioSection({
   initialData,
+  limit,
+  showViewAll = false,
 }: PortfolioSectionProps) {
   const { data, isLoading, isError, error } = usePortfolio(initialData);
+
+  const portfolioData = limit ? data?.slice(0, limit) : data;
 
   return (
     <section
@@ -53,18 +60,36 @@ export default function PortfolioSection({
         )}
 
         {/* Empty */}
-        {!isLoading && !isError && (!data || data.length === 0) && (
-          <div className="flex min-h-60 items-center justify-center rounded-3xl border border-border bg-bg-surface">
-            <p className="text-text-muted">No portfolio projects available.</p>
-          </div>
-        )}
+        {!isLoading &&
+          !isError &&
+          (!portfolioData || portfolioData.length === 0) && (
+            <div className="flex min-h-60 items-center justify-center rounded-3xl border border-border bg-bg-surface">
+              <p className="text-text-muted">
+                No portfolio projects available.
+              </p>
+            </div>
+          )}
 
         {/* Success */}
-        {!isLoading && !isError && data && data.length > 0 && (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-            {data.map((portfolio) => (
-              <PortfolioCard key={portfolio.id} portfolio={portfolio} />
-            ))}
+        {!isLoading &&
+          !isError &&
+          portfolioData &&
+          portfolioData.length > 0 && (
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
+              {portfolioData.map((portfolio) => (
+                <PortfolioCard key={portfolio.id} portfolio={portfolio} />
+              ))}
+            </div>
+          )}
+
+        {showViewAll && portfolioData && portfolioData.length > 0 && (
+          <div className="mt-16 flex justify-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-dark"
+            >
+              View All Projects
+            </Link>
           </div>
         )}
       </div>

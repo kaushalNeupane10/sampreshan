@@ -6,7 +6,9 @@ import {
   createPageMetadata,
   createWebPageJsonLd,
 } from "@/lib/seo";
+import { getPortfolio } from "@/services/portfolio.service";
 
+const portfolio = await getPortfolio();
 const title = "Creative, Video, and Digital Portfolio";
 const description =
   "Explore Sampreshan Media projects across branding, campaign design, video production, motion graphics, websites, mobile apps, and backend systems.";
@@ -33,7 +35,7 @@ export default function Page() {
         ]}
       />
       <PortfolioHero />
-      <PortfolioSection />
+      <PortfolioSection initialData={portfolio} />
     </>
   );
 }
